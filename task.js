@@ -1,4 +1,4 @@
-let startTimer = Number(document.getElementById('timer').innerText);
+/* let startTimer = Number(document.getElementById('timer').innerText);
 let timer = setInterval(CountdownTimer, 1000); //объявим переменную для остановки setInterval, т.к. он работает бесконечно
 
 function CountdownTimer() {        
@@ -12,7 +12,7 @@ function CountdownTimer() {
             clearInterval(timer);
             return
         }      
-}
+} */
 
 /* Реализация таймера с объектом window.location
 
@@ -79,32 +79,41 @@ function CountdownTimer() {
 
 timer = setInterval(CountdownTimer, 1000); */
 
-// Реализация счетчика формата HH:MM:SS - не сделано!
+// Реализация счетчика формата HH:MM:SS
 
-/* let timer;
-let hr = Number(document.getElementById('hours').innerText);
-let min = Number(document.getElementById('min').innerText);
-let sec = Number(document.getElementById('sec').innerText);  
+let timer = setInterval(CountdownTimer, 1000);
+let hr = document.getElementById('hours');
+let min = document.getElementById('min');
+let sec = document.getElementById('sec');  
 
 function CountdownTimer() {  
     
-    --sec;
-
-    if (sec == 0) {
-        //clearInterval(timer)
-        sec = '00';        
-        --min;
+    sec.textContent = Number(sec.textContent) - 1;    
+     
+    if (Number(sec.textContent) === 0) {        
+        min.textContent = Number(min.textContent) - 1;
+        sec.textContent = 59;
     }
 
-    if (min == 0) {
-        min = '00'        
-        --hr;
+    if (Number(sec.textContent) < 10) {
+        sec.textContent = "0" + Number(sec.textContent);
     }
 
-    document.getElementById('hours').innerText = hr;
-    document.getElementById('min').innerText = min;
-    document.getElementById('sec').innerText = sec;    
-    
+    if (Number(min.textContent) === 0) {        
+        hr.textContent = Number(hr.textContent) - 1;
+        min.textContent = 59;
+    }
+
+    if (Number(min.textContent) < 10) {
+        min.textContent = "0" + Number(min.textContent);
+    }
+
+    if (Number(hr.textContent) < 10) {
+        hr.textContent = "0" + Number(hr.textContent);
+    }
+
+    if (hr === 0) { 
+        clearInterval(timer);
+        return
+    }      
 }
-
-timer = setInterval(CountdownTimer, 1000) */
