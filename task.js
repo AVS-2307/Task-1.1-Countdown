@@ -125,7 +125,7 @@ let sec = document.getElementById('sec');   */
 let timer = setInterval(CountdownTimer, 1000);
 let hr = 23;
 let min = 59;
-let sec = 59;  
+let sec = 59; 
 
 
 
@@ -140,9 +140,9 @@ function CountdownTimer() {
         sec = 59;
     }
 
-    if (Number(min.textContent) === 0) {        
-        hr.textContent = Number(hr.textContent) - 1;
-        min.textContent = 59;
+    if (min === 0) {        
+        hr--;
+        min = 59;
     }
 
     sec = (sec < 10) ? "0" + sec : sec;
