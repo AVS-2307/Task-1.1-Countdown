@@ -19,7 +19,7 @@ function CountdownTimer() {
 1.1 Перезагрузка страницы по истечении таймера */
 
 /* let startTimer = Number(document.getElementById('timer').innerText);
-let timer; //объявим переменную для остановки setInterval, т.к. он работает бесконечно
+let timer = setInterval(CountdownTimer, 1000); //объявим переменную для остановки setInterval, т.к. он работает бесконечно
 function CountdownTimer() {        
         --startTimer        
         if (startTimer === 0) {
@@ -31,9 +31,7 @@ function CountdownTimer() {
             clearInterval(timer);
             return
         }      
-}
-
-timer = setInterval(CountdownTimer, 1000); */
+} */
 
 
 /* Реализация таймера с объектом window.location
@@ -41,7 +39,7 @@ timer = setInterval(CountdownTimer, 1000); */
 1.2 Открытие другой страницы по истечении таймера */
 
 /* let startTimer = Number(document.getElementById('timer').innerText);
-let timer; //объявим переменную для остановки setInterval, т.к. он работает бесконечно
+let timer = setInterval(CountdownTimer, 1000); //объявим переменную для остановки setInterval, т.к. он работает бесконечно
 function CountdownTimer() {        
         --startTimer        
         if (startTimer === 0) {
@@ -53,9 +51,7 @@ function CountdownTimer() {
             clearInterval(timer);
             return
         }      
-}
-
-timer = setInterval(CountdownTimer, 1000); */
+} */
 
 
 /* Реализация таймера с объектом window.location
@@ -63,7 +59,7 @@ timer = setInterval(CountdownTimer, 1000); */
 
 /* let startTimer = Number(document.getElementById('timer').innerText);
 const a = document.getElementById('myAnchor')
-let timer; //объявим переменную для остановки setInterval, т.к. он работает бесконечно
+let timer = setInterval(CountdownTimer, 1000); //объявим переменную для остановки setInterval, т.к. он работает бесконечно
 function CountdownTimer() {        
         --startTimer        
         if (startTimer === 0) {
@@ -75,18 +71,16 @@ function CountdownTimer() {
             clearInterval(timer);
             return
         }      
-}
+} */
 
-timer = setInterval(CountdownTimer, 1000); */
+// Реализация счетчика формата HH:MM:SS с указанием времени на странице сайта
 
-// Реализация счетчика формата HH:MM:SS
-
-let timer = setInterval(CountdownTimer, 1000);
+/* let timer = setInterval(CountdownTimer, 1000);
 let hr = document.getElementById('hours');
 let min = document.getElementById('min');
-let sec = document.getElementById('sec');  
+let sec = document.getElementById('sec');   */
 
-function CountdownTimer() {  
+ /* function CountdownTimer() {  
     
     sec.textContent = Number(sec.textContent) - 1;    
      
@@ -95,8 +89,55 @@ function CountdownTimer() {
         sec.textContent = 59;
     }
 
-    if (Number(sec.textContent) < 10) {
+    if (Number(min.textContent) === 0) {        
+        hr.textContent = Number(hr.textContent) - 1;
+        min.textContent = 59;
+    }
+
+/*     if (Number(sec.textContent) < 10) {
         sec.textContent = "0" + Number(sec.textContent);
+    } */
+
+
+
+/*     if (Number(min.textContent) < 10) {
+        min.textContent = "0" + Number(min.textContent);
+    } */
+
+/*     if (Number(hr.textContent) < 10) {
+        hr.textContent = "0" + Number(hr.textContent);
+    } */
+
+    /*sec.textContent = (Number(sec.textContent) < 10) ? "0" + Number(sec.textContent) : sec.textContent;
+    min.textContent = (Number(min.textContent) < 10) ? "0" + Number(min.textContent) : min.textContent;
+    hr.textContent = (Number(hr.textContent) < 10) ? "0" + Number(hr.textContent) : hr.textContent;
+
+
+
+    if (hr === 0) { 
+        clearInterval(timer);
+        return
+    }      
+} */
+
+// Реализация счетчика формата HH:MM:SS с указанием времени в скрипте
+
+let timer = setInterval(CountdownTimer, 1000);
+let hr = 23;
+let min = 59;
+let sec = 59;  
+
+
+
+function CountdownTimer() {
+    
+    document.getElementById('status-clock').innerHTML = 'До окончания конкурса осталось: ' + hr + ":" + min + ":" + sec;     
+    
+    sec--;    
+     
+    if (sec === 0) {        
+        min--;
+        sec = 59;
     }
 
     if (Number(min.textContent) === 0) {        
@@ -104,16 +145,14 @@ function CountdownTimer() {
         min.textContent = 59;
     }
 
-    if (Number(min.textContent) < 10) {
-        min.textContent = "0" + Number(min.textContent);
-    }
-
-    if (Number(hr.textContent) < 10) {
-        hr.textContent = "0" + Number(hr.textContent);
-    }
+    sec = (sec < 10) ? "0" + sec : sec;
+    min = (min < 10) ? "0" + min : min;
+    hr = (hr < 10) ? "0" + hr : hr;
 
     if (hr === 0) { 
         clearInterval(timer);
         return
-    }      
+    }
+
+    
 }
