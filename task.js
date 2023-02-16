@@ -1,5 +1,6 @@
 let startTimer = Number(document.getElementById('timer').innerText);
-let timer; //объявим переменную для остановки setInterval, т.к. он работает бесконечно
+let timer = setInterval(CountdownTimer, 1000); //объявим переменную для остановки setInterval, т.к. он работает бесконечно
+
 function CountdownTimer() {        
         --startTimer        
         if (startTimer === 0) {
@@ -12,8 +13,6 @@ function CountdownTimer() {
             return
         }      
 }
-
-timer = setInterval(CountdownTimer, 1000);
 
 /* Реализация таймера с объектом window.location
 
