@@ -152,7 +152,5 @@ function CountdownTimer() {
     if (hr === 0) { 
         clearInterval(timer);
         return
-    }
-
-    
+    };    
 }
